@@ -25,7 +25,7 @@ ingress:
   path: /
   hosts:
     - lasidtest.uece.br
-  tls: []
+  tls:
     - secretName: lasidtest-tls
       hosts:
         - lasidtest.uece.br
