@@ -2,11 +2,11 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
+replicaCount: 5
 
 image:
-  repository: gcr.io/heptio-images/ks-guestbook-demo
-  tag: 0.1
+  repository: nginxdemos/hello:latest
+  tag: latest
   pullPolicy: IfNotPresent
 
 containerPort: 80
@@ -17,16 +17,18 @@ service:
 
 ingress:
   enabled: false
+  ingressClassName: nginx
   annotations: {}
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
   path: /
   hosts:
-    - chart-example.local
+    - lasidtest.uece.br
   tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    - secretName: lasidtest-tls
+      hosts:
+        - lasidtest.uece.br
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
