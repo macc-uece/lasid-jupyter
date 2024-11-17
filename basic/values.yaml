@@ -5,7 +5,7 @@
 replicaCount: 5
 
 image:
-  repository: nginxdemos/hello:latest
+  repository: nginxdemos/hello
   tag: latest
   pullPolicy: IfNotPresent
 
