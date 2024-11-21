@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lasid-jupyter
+  namespace: default
+  annotations:
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+      - lasidtest.uece.br
+      secretName: lasidtest.uece.br-secret
+  rules:
+    - host: "lasidtest.uece.br"
+      http:
+        paths:
+        - pathType: Prefix
+          path: /
+          backend:
+            service:
+              name: lasid-jupyter
+              port:
+                number: 80
