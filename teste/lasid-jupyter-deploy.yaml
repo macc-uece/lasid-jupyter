@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lasid-jupyter
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: lasid-jupyter
+  template:
+    metadata:
+      labels:
+        app: lasid-jupyter
+    spec:
+      containers:
+      - image: quay.io/jupyter/datascience-notebook:latest
+        name: lasid-jupyter
+        ports:
+        - containerPort: 80
