@@ -9,6 +9,6 @@ sudo docker build -t lasid/jupyter-hub:${SPARK_VER}_${UBUNTU_VER} \
              -t lasid/jupyter-hub:latest .
 
 ## Push image to DockerHub
-docker login
+docker login -u lasid
 docker push lasid/jupyter-hub:latest
 docker push lasid/jupyter-hub:${VERSION}_${UBUNTU_VER}
