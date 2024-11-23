@@ -49,7 +49,7 @@ spec:
             allowPrivilegeEscalation: false
           env:
             - name: CONFIGPROXY_AUTH_TOKEN
-              value: "f7a5ba56603e8f4e4f1a1eb85b551b9e70ff863f76cb5f56e72aa23f84e31b5c"
+              value: "daeb7e5f438618d54ce454fba0eaa0d409dc943315dac667d35152536a412ead"
           # {{- with .Values.proxy.chp.image.pullPolicy }}
           # imagePullPolicy: {{ . }}
           # {{- end }}
