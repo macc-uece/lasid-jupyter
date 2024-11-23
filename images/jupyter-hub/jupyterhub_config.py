@@ -233,19 +233,19 @@ c.KubeSpawner.service_account = "hub"
 #         }
 #     ]
 # elif storage_type == 'static':
-#     pvc_claim_name = get_config('singleuser.storage.static.pvcName')
-#     c.KubeSpawner.volumes = [{
-#         'name': 'home',
-#         'persistentVolumeClaim': {
-#             'claimName': pvc_claim_name
-#         }
-#     }]
+     pvc_claim_name = get_config('singleuser.storage.static.pvcName')
+     c.KubeSpawner.volumes = [{
+         'name': 'home',
+         'persistentVolumeClaim': {
+             'claimName': pvc_claim_name
+         }
+     }]
 
-#     c.KubeSpawner.volume_mounts = [{
-#         'mountPath': get_config('singleuser.storage.homeMountPath'),
-#         'name': 'home',
-#         'subPath': get_config('singleuser.storage.static.subPath')
-#     }]
+     c.KubeSpawner.volume_mounts = [{
+         'mountPath': get_config('singleuser.storage.homeMountPath'),
+         'name': 'home',
+         'subPath': get_config('singleuser.storage.static.subPath')
+     }]
 
 # c.KubeSpawner.volumes.extend(get_config('singleuser.storage.extraVolumes', []))
 # c.KubeSpawner.volume_mounts.extend(get_config('singleuser.storage.extraVolumeMounts', []))
@@ -290,8 +290,21 @@ c.JupyterHub.hub_connect_port = int(os.environ['HUB_SERVICE_PORT'])
 #         ('oauth_callback_url', 'callbackUrl'),
 # )
 
-c.JupyterHub.authenticator_class = 'jupyterhub.auth.DummyAuthenticator'
-c.DummyAuthenticator.password = "some_password"
+#c.JupyterHub.authenticator_class = 'jupyterhub.auth.DummyAuthenticator'
+#c.DummyAuthenticator.password = "some_password"
+
+# pip install jupyterhub-ldapauthenticator
+c.JupyterHub.authenticator_class = 'ldapauthenticator.LDAPAuthenticator'
+c.LDAPAuthenticator.server_address = 'lasid40.lasid.uece.br' 
+c.LDAPAuthenticator.lookup_dn = False
+c.LDAPAuthenticator.bind_dn_template = [
+    "uid={username},ou=users,dc=lasid,dc=uece,dc=br"
+]
+#c.LDAPAuthenticator.allowed_groups = [
+#    "cn=lab,ou=groups,dc=lasid,dc=uece,dc=br",
+#    "cn=mmd2023,ou=groups,dc=lasid,dc=uece,dc=br"
+#]
+c.LDAPAuthenticator.use_ssl = True
 
 # if auth_type == 'google':
 #     c.JupyterHub.authenticator_class = 'oauthenticator.GoogleOAuthenticator'
