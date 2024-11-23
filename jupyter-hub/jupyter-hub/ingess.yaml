@@ -19,6 +19,6 @@ spec:
           path: /
           backend:
             service:
-              name: privhealth-admin-web
+              name: hub
               port:
                 number: 8081
