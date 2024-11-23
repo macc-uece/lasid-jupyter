@@ -25,9 +25,9 @@ RUN apt-get update && \
       && \
     apt-get purge && apt-get clean
 
-ARG NB_USER=stack
+ARG NB_USER=lasid
 ARG NB_UID=1000
-ARG HOME=/home/
+ARG HOME=/home/lasid/
 
 ENV LANG C.UTF-8
 
