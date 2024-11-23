@@ -31,8 +31,8 @@ spec:
             - mountPath: /srv/jupyterhub/jupyterhub_config.py
               subPath: jupyterhub_config.py
               name: config
-            - mountPath: /etc/jupyterhub/config/
-              name: config
+            #- mountPath: /etc/jupyterhub/config/
+            #  name: config
             - mountPath: /etc/jupyterhub/secret/
               name: secret
             - mountPath: /svr/jupyterhub/
