@@ -3,22 +3,22 @@ kind: Ingress
 metadata:
   name: jupyter-hub
   namespace: default
-  annotations:
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+#  annotations:
+#    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
   ingressClassName: nginx
-  tls:
-    - hosts:
-      -lasidtest.uece.br
-      secretName: lasidtest.uece.br-secret
+#  tls:
+#    - hosts:
+#      -lasidtest.uece.br
+#      secretName: lasidtest.uece.br-secret
   rules:
     - host: "lasidtest.uece.br"
       http:
         paths:
         - pathType: Prefix
           path: /
-          backend:
-            service:
-              name: proxy
-              port:
-                number: 8081
+#          backend:
+#            service:
+#              name: proxy
+#              port:
+#                number: 8081
