@@ -19,6 +19,6 @@ spec:
           path: /
           backend:
             service:
-              name: hub
+              name: proxy
               port:
                 number: 8081
