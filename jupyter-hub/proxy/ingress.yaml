@@ -17,8 +17,8 @@ spec:
         paths:
         - pathType: Prefix
           path: /
-#          backend:
-#            service:
-#              name: proxy
-#              port:
-#                number: 8081
+          backend:
+            service:
+              name: proxy
+              port:
+                number: 8081
