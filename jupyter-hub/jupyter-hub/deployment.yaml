@@ -18,8 +18,8 @@ spec:
       containers:
         - name: jupyter-hub
           #image: kienmn97/jupyter-hub:1.1.0
-          #image: kienmn97/jupyter-hub-spark-notebook:1.1.0
-          image: lasid/lasid-jupyter:latest
+          image: kienmn97/jupyter-hub-spark-notebook:1.1.0
+          #image: lasid/lasid-jupyter:latest
           imagePullPolicy: Always
           command: ["jupyterhub", "--config", "/srv/jupyterhub/jupyterhub_config.py"]
           ports:
@@ -28,28 +28,28 @@ spec:
             - name: CONFIGPROXY_AUTH_TOKEN
               value: "daeb7e5f438618d54ce454fba0eaa0d409dc943315dac667d35152536a412ead"
           volumeMounts:
-            - mountPath: /srv/jupyterhub/jupyterhub_config.py
-              subPath: jupyterhub_config.py
-              name: config
+            #- mountPath: /srv/jupyterhub/jupyterhub_config.py
+            #  subPath: jupyterhub_config.py
+            #  name: config
             #- mountPath: /etc/jupyterhub/config/
             #  name: config
-            - mountPath: /etc/jupyterhub/secret/
-              name: secret
+            #- mountPath: /etc/jupyterhub/secret/
+            #  name: secret
             - mountPath: /svr/jupyterhub/
               name: hub-db-dir
           resources:
             requests:
               cpu: 100m
       volumes:
-        - name: config
-          configMap:
-            name: hub-config
-        - name: config
-          configMap:
-            name: hub-config
-        - name: secret
-          secret:
-            secretName: hub-secret
+        #- name: config
+        #  configMap:
+        #    name: hub-config
+        #- name: config
+        #  configMap:
+        #    name: hub-config
+        #- name: secret
+        #  secret:
+        #    secretName: hub-secret
         - name: hub-db-dir
           persistentVolumeClaim:
             claimName: hub-db-dir
