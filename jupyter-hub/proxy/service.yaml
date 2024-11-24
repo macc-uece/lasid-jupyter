@@ -34,4 +34,4 @@ spec:
       #{{- if .Values.proxy.service.nodePorts.http }}
       #nodePort: {{ .Values.proxy.service.nodePorts.http }}
       #{{- end }}
-#  type: LoadBalancer
+  type: LoadBalancer
