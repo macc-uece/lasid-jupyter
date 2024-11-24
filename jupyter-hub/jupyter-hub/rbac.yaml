@@ -2,6 +2,7 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: hub
+  namespace: default
   labels:
     component: jupyter
 ---
@@ -9,6 +10,7 @@ kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: hub
+  namespace: default
   labels:
     component: jupyter
 rules:
@@ -23,6 +25,7 @@ kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: hub
+  namespace: default
   labels:
     component: jupyter
 subjects:
