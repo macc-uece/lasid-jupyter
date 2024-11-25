@@ -19,7 +19,7 @@ spec:
       containers:
         - name: jupyter-hub
           #image: kienmn97/jupyter-hub:1.1.0
-          image: kienmn97/jupyter-hub-spark-notebook:1.1.0
+          image: kienmn97/jupyter-hub:latest
           #image: lasid/lasid-jupyter:latest
           imagePullPolicy: Always
           command: ["jupyterhub", "--config", "/srv/jupyterhub/jupyterhub_config.py"]
