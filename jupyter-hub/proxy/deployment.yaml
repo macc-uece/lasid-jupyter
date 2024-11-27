@@ -54,6 +54,7 @@ spec:
           # {{- with .Values.proxy.chp.image.pullPolicy }}
           # imagePullPolicy: {{ . }}
           # {{- end }}
+          imagePullPolicy: Always
           ports:
             - containerPort: 8000
               name: proxy-public
