@@ -19,10 +19,11 @@ spec:
       containers:
         - name: jupyter-hub
           #image: kienmn97/jupyter-hub:1.1.0
-          image: kienmn97/jupyter-hub:latest
+          #image: kienmn97/jupyter-hub:latest
           #image: lasid/lasid-jupyter:latest
+          image: jupyterhub/jupyterhub-demo:latest
           imagePullPolicy: Always
-          command: ["jupyterhub", "--config", "/srv/jupyterhub/jupyterhub_config.py"]
+          #command: ["jupyterhub", "--config", "/srv/jupyterhub/jupyterhub_config.py"]
           ports:
             - containerPort: 8081
           env:
