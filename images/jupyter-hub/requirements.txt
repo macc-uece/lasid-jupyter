@@ -22,7 +22,7 @@ pymysql==1.1.*
 psycopg2-binary==2.9.*
 pycurl==7.43.0.*
 statsd==3.3.*
-cryptography==3.2.*
+cryptography==42.*
 
 ## Useful tools
 
