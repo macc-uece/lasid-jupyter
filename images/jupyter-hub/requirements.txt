@@ -11,7 +11,7 @@ jupyterhub-nativeauthenticator==0.0.5
 mwoauth==0.3.7
 globus_sdk[jwt]==1.8.*
 nullauthenticator==1.0.*
-oauthenticator==15.0.*
+oauthenticator==16.3.*
 
 ## Spawners
 jupyterhub-kubespawner==0.11.*
@@ -22,7 +22,7 @@ pymysql==1.1.*
 psycopg2-binary==2.9.*
 pycurl==7.43.0.*
 statsd==3.3.*
-cryptography==42.*
+cryptography==43.0.*
 
 ## Useful tools
 
